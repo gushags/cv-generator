@@ -17,15 +17,18 @@ function App() {
   return (
     <>
       <main>
+        <h1>Create a CV</h1>
         <button className='edit' onClick={handleEdit}>
           Edit
         </button>
         <button className='submit' onClick={handleSubmit}>
           Submit
         </button>
+        <hr />
         <Contact edit={edit} />
         <Education edit={edit} />
         <Work edit={edit} />
+        <hr />
         <button className='edit' onClick={handleEdit}>
           Edit
         </button>
