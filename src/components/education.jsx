@@ -21,10 +21,11 @@ function Education({ edit }) {
 
   if (edit) {
     return (
-      <div className='education'>
+      <div id='education'>
         <h2>Education section</h2>
         {educationList.map((edu, index) => (
           <div key={index}>
+            <hr />
             <Field
               label='School'
               value={edu.school}

@@ -1,0 +1,45 @@
+body {
+  background-color: aquamarine;
+}
+main {
+  width: 50%;
+  margin: 0 auto;
+}
+label {
+  margin: 5px 15px 5px 0px;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+input {
+  margin-left: 10px;
+  width: 100%;
+}
+
+textarea {
+  margin-left: 10px;
+  width: 100%;
+}
+
+#contact,
+#education div,
+#work div {
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 5px double black;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
+button {
+  margin: 10px 10px;
+}

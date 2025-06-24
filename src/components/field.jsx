@@ -1,8 +1,10 @@
 function Field({ type = 'text', label, value, onChange }) {
   return (
     <>
-      <label>{label}</label>
-      <input type={type} value={value} onChange={onChange} />
+      <label>
+        {label}
+        <input type={type} name={label} value={value} onChange={onChange} />
+      </label>
     </>
   );
 }

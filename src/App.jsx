@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+// import './App.css';
 import Contact from './components/contact';
 import Education from './components/education';
 import Work from './components/work';
@@ -17,6 +17,12 @@ function App() {
   return (
     <>
       <main>
+        <button className='edit' onClick={handleEdit}>
+          Edit
+        </button>
+        <button className='submit' onClick={handleSubmit}>
+          Submit
+        </button>
         <Contact edit={edit} />
         <Education edit={edit} />
         <Work edit={edit} />

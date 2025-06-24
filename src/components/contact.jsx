@@ -14,8 +14,9 @@ function Contact({ edit }) {
 
   if (edit) {
     return (
-      <>
+      <div id='contact'>
         <h2>Contact Information</h2>
+        <hr />
         <Field label='Name' value={name} onChange={handleName} />
         <Field label='Address' value={address} onChange={handleAddress} />
         <Field
@@ -30,7 +31,7 @@ function Contact({ edit }) {
           value={email}
           onChange={handleEmail}
         />
-      </>
+      </div>
     );
   } else {
     // the pretty form on submit

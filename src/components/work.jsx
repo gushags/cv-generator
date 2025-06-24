@@ -7,9 +7,9 @@ function Work({ edit }) {
   ]);
 
   const handleChange = (index, field, value) => {
-    const updatedList = [...workExperience];
-    updatedList[index][field] = value;
-    setWorkExperience(updatedList);
+    const updatedWork = [...workExperience];
+    updatedWork[index][field] = value;
+    setWorkExperience(updatedWork);
   };
 
   const addWork = () => {
@@ -21,10 +21,11 @@ function Work({ edit }) {
 
   if (edit) {
     return (
-      <div className='work'>
+      <div id='work'>
         <h2>Work section</h2>
         {workExperience.map((job, index) => (
           <div key={index}>
+            <hr />
             <Field
               label='Company'
               value={job.company}
@@ -35,14 +36,17 @@ function Work({ edit }) {
               value={job.position}
               onChange={(e) => handleChange(index, 'position', e.target.value)}
             />
-            <Field
-              type='text'
-              label='Responsibilities'
-              value={job.responsibility}
-              onChange={(e) =>
-                handleChange(index, 'responsibility', e.target.value)
-              }
-            />
+            <label>
+              Responsibilities
+              <textarea
+                type='text'
+                label='Responsibilities'
+                value={job.responsibility}
+                onChange={(e) =>
+                  handleChange(index, 'responsibility', e.target.value)
+                }
+              />
+            </label>
             <Field
               type='text'
               label='Dates Worked'
