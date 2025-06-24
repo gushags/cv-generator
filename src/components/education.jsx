@@ -2,30 +2,63 @@ import { useState } from 'react';
 import Field from './field';
 
 function Education({ edit }) {
-  const [school, setSchool] = useState([]);
-  const [degree, setDegree] = useState([]);
-  const [dateOfStudy, setDate] = useState([]);
+  console.log(edit);
+  const [educationList, setEducationList] = useState([
+    { school: '', degree: '', dateOfStudy: '' },
+  ]);
 
-  const handleSchool = (e) => setSchool(e.target.value);
-  const handleDegree = (e) => setDegree(e.target.value);
-  const handleDateOfStudy = (e) => setDate(e.target.value);
+  const handleChange = (index, field, value) => {
+    const updatedList = [...educationList];
+    updatedList[index][field] = value;
+    setEducationList(updatedList);
+  };
+
+  const addEducation = () => {
+    setEducationList([
+      ...educationList,
+      { school: '', degree: '', dateOfStudy: '' },
+    ]);
+  };
 
   if (edit) {
     return (
       <div className='education'>
         <h2>Education section</h2>
-        <Field label='School' value={school} onChange={handleSchool} />
-        <Field label='Field of Study' value={degree} onChange={handleDegree} />
-        <Field label='Dates' value={dateOfStudy} onChange={handleDateOfStudy} />
+        {educationList.map((edu, index) => (
+          <div key={index}>
+            <Field
+              label='School'
+              value={edu.school}
+              onChange={(e) => handleChange(index, 'school', e.target.value)}
+            />
+            <Field
+              label='Degree'
+              value={edu.degree}
+              onChange={(e) => handleChange(index, 'degree', e.target.value)}
+            />
+            <Field
+              label='Date of Study'
+              value={edu.dateOfStudy}
+              onChange={(e) =>
+                handleChange(index, 'dateOfStudy', e.target.value)
+              }
+            />
+          </div>
+        ))}
+        <button onClick={addEducation}>Add More Education</button>
       </div>
     );
   } else {
     return (
       <>
         <h2>Education</h2>
-        <h3>{school}</h3>
-        <h3>{degree}</h3>
-        <h3>{dateOfStudy}</h3>
+        {educationList.map((edu, index) => (
+          <div key={index}>
+            <h3>{edu.school}</h3>
+            <h3>{edu.degree}</h3>
+            <h3>{edu.dateOfStudy}</h3>
+          </div>
+        ))}
       </>
     );
   }
