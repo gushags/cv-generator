@@ -3,20 +3,32 @@ import './App.css';
 
 function App() {
   const [edit, setEdit] = useState(true);
+
+  function handleEdit() {
+    setEdit(true);
+  }
+  function handleSubmit() {
+    setEdit(false);
+  }
+
   return (
     <>
       <main>
-        <Contact />
+        <Contact edit={edit} />
         <Education />
         <Work />
-        <button className='edit'>Edit</button>
-        <button className='submit'>Submit</button>
+        <button className='edit' onClick={handleEdit}>
+          Edit
+        </button>
+        <button className='submit' onClick={handleSubmit}>
+          Submit
+        </button>
       </main>
     </>
   );
 }
 
-function Contact() {
+function Contact({ edit }) {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
@@ -35,37 +47,48 @@ function Contact() {
     setEmail(e.target.value);
   }
 
-  return (
-    <>
-      <h2>Contact Information</h2>
-      <ContactField
-        type='text'
-        label='Name'
-        value={name}
-        onChange={handleName}
-      />
-      <h3>{name}</h3>
-      <ContactField
-        type='text'
-        label='Address'
-        value={address}
-        onChange={handleAddress}
-      />
-      <h3>{address}</h3>
-      <ContactField
-        type='phone'
-        label='Telephone'
-        value={phone}
-        onChange={handlePhone}
-      />
-      <ContactField
-        type='email'
-        label='Email'
-        value={email}
-        onChange={handleEmail}
-      />
-    </>
-  );
+  if (edit) {
+    return (
+      <>
+        <h2>Contact Information</h2>
+        <ContactField
+          type='text'
+          label='Name'
+          value={name}
+          onChange={handleName}
+        />
+
+        <ContactField
+          type='text'
+          label='Address'
+          value={address}
+          onChange={handleAddress}
+        />
+        <ContactField
+          type='phone'
+          label='Telephone'
+          value={phone}
+          onChange={handlePhone}
+        />
+        <ContactField
+          type='email'
+          label='Email'
+          value={email}
+          onChange={handleEmail}
+        />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <h2>Contact Information</h2>
+        <h3>{name}</h3>
+        <h3>{address}</h3>
+        <h3>{phone}</h3>
+        <h3>{email}</h3>
+      </>
+    );
+  }
 }
 
 function ContactField({ type, label, value, onChange }) {
