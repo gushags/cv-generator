@@ -2,43 +2,72 @@ import { useState } from 'react';
 import Field from './field';
 
 function Work({ edit }) {
-  const [company, setCompany] = useState('');
-  const [position, setPosition] = useState('');
-  const [resp, setResp] = useState('');
-  const [datesWorked, setDatesWorked] = useState('');
+  const [workExperience, setWorkExperience] = useState([
+    { company: '', position: '', responsibility: '', datesWorked: '' },
+  ]);
 
-  const handleCompany = (e) => setCompany(e.target.value);
-  const handlePosition = (e) => setPosition(e.target.value);
-  const handleResp = (e) => setResp(e.target.value);
-  const handleDatesWorked = (e) => setDatesWorked(e.target.value);
+  const handleChange = (index, field, value) => {
+    const updatedList = [...workExperience];
+    updatedList[index][field] = value;
+    setWorkExperience(updatedList);
+  };
+
+  const addWork = () => {
+    setWorkExperience([
+      ...workExperience,
+      { company: '', position: '', responsibility: '', datesWorked: '' },
+    ]);
+  };
 
   if (edit) {
     return (
-      <>
+      <div className='work'>
         <h2>Work section</h2>
-        <Field label='Company' value={company} onChange={handleCompany} />
-        <Field label='Position' value={position} onChange={handlePosition} />
-        <Field
-          type='text'
-          label='Responsibilities'
-          value={resp}
-          onChange={handleResp}
-        />
-        <Field
-          type='text'
-          label='Dates Worked'
-          value={datesWorked}
-          onChange={handleDatesWorked}
-        />
-      </>
+        {workExperience.map((job, index) => (
+          <div key={index}>
+            <Field
+              label='Company'
+              value={job.company}
+              onChange={(e) => handleChange(index, 'company', e.target.value)}
+            />
+            <Field
+              label='Position'
+              value={job.position}
+              onChange={(e) => handleChange(index, 'position', e.target.value)}
+            />
+            <Field
+              type='text'
+              label='Responsibilities'
+              value={job.responsibility}
+              onChange={(e) =>
+                handleChange(index, 'responsibility', e.target.value)
+              }
+            />
+            <Field
+              type='text'
+              label='Dates Worked'
+              value={job.datesWorked}
+              onChange={(e) =>
+                handleChange(index, 'datesWorked', e.target.value)
+              }
+            />
+          </div>
+        ))}
+        <button onClick={addWork}>Add More Work</button>
+      </div>
     );
   } else {
     return (
       <>
         <h2>Work Experience</h2>
-        <h3>{company}</h3>
-        <h3>{position}</h3>
-        <h3>{datesWorked}</h3>
+        {workExperience.map((job, index) => (
+          <div key={index}>
+            <h3>{job.company}</h3>
+            <h3>{job.position}</h3>
+            <h3>{job.responsibility}</h3>
+            <h3>{job.datesWorked}</h3>
+          </div>
+        ))}
       </>
     );
   }

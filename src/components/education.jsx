@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Field from './field';
 
 function Education({ edit }) {
-  console.log(edit);
   const [educationList, setEducationList] = useState([
     { school: '', degree: '', dateOfStudy: '' },
   ]);
