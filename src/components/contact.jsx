@@ -37,11 +37,17 @@ function Contact({ edit }) {
     // the pretty form on submit
     return (
       <>
-        <h2>Contact Information</h2>
-        <h3>{name}</h3>
-        <h3>{address}</h3>
-        <h3>{phone}</h3>
-        <h3>{email}</h3>
+        <section id='contact-container'>
+          <div className='name'>
+            <h1>{name}</h1>
+          </div>
+          <div className='contact-info'>
+            <h3>{address}</h3>
+            <h3>{phone}</h3>
+            <h3>{email}</h3>
+          </div>
+        </section>
+        <hr />
       </>
     );
   }

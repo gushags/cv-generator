@@ -1,12 +1,13 @@
 body {
-  background-color: darkgrey;
   color: white;
 }
-
-main {
-  width: 50%;
+#edit-container {
+  background-color: darkgray;
+  width: 60%;
   margin: 0 auto;
+  padding: 25px 25px;
 }
+
 label {
   margin: 5px 15px 5px 0px;
 }
@@ -55,4 +56,23 @@ button {
   border-radius: 10px;
   border-width: 0;
   padding: 3px 15px;
+}
+
+#cv-container {
+  background-color: white;
+  color: black;
+  width: 85%;
+  margin: 60px auto;
+}
+#contact-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+}
+#contact-container h1,
+.contact-info h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#contact-container h1 {
+  font-size: 4rem;
 }
