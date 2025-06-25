@@ -50,16 +50,22 @@ function Education({ edit }) {
     );
   } else {
     return (
-      <>
+      <section id='education-container'>
         <h2>Education</h2>
         {educationList.map((edu, index) => (
-          <div key={index}>
-            <h3>{edu.school}</h3>
-            <h3>{edu.degree}</h3>
-            <h3>{edu.dateOfStudy}</h3>
+          <div className='school' key={index}>
+            <div>
+              <h3>{edu.school}</h3>
+              <p>
+                <em>{edu.degree}</em>
+              </p>
+            </div>
+            <div>
+              <h3>{edu.dateOfStudy}</h3>
+            </div>
           </div>
         ))}
-      </>
+      </section>
     );
   }
 }

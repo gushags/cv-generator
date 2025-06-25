@@ -76,3 +76,13 @@ button {
 #contact-container h1 {
   font-size: 4rem;
 }
+#education-container h2,
+#education-container h3,
+em {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.school {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
