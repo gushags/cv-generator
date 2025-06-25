@@ -62,17 +62,27 @@ function Work({ edit }) {
     );
   } else {
     return (
-      <>
+      <section id='work-container'>
         <h2>Work Experience</h2>
         {workExperience.map((job, index) => (
           <div key={index}>
-            <h3>{job.company}</h3>
-            <h3>{job.position}</h3>
-            <h3>{job.responsibility}</h3>
-            <h3>{job.datesWorked}</h3>
+            <div className='job-container'>
+              <div>
+                <h3>{job.company}</h3>
+                <p>
+                  <em>{job.position}</em>
+                </p>
+              </div>
+              <div>
+                <h3>{job.datesWorked}</h3>
+              </div>
+            </div>
+            <div className='responsibility'>
+              <p>{job.responsibility}</p>
+            </div>
           </div>
         ))}
-      </>
+      </section>
     );
   }
 }

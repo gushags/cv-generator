@@ -64,6 +64,16 @@ button {
   width: 85%;
   margin: 60px auto;
 }
+
+#cv-container hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 5px double black;
+  color: black;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
 #contact-container {
   display: grid;
   grid-template-columns: 3fr 1fr;
@@ -78,11 +88,23 @@ button {
 }
 #education-container h2,
 #education-container h3,
+#work-container h2,
+#work-container h3,
+#work-container p,
 em {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.school {
+.responsibility {
+  margin-bottom: 25px;
+}
+
+.school,
+.job-container {
   display: grid;
   grid-template-columns: 4fr 1fr;
+}
+
+.school {
+  margin-bottom: 25px;
 }
